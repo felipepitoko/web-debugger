@@ -1,0 +1,7 @@
+sudo mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.old
+
+sudo systemctl start docker
+sudo systemctl enable docker
+
+docker build -t web-debugger .
+docker run --name web-debugger-app -it -d -p 5100:5100 web-debugger
